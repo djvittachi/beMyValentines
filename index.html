@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&family=Poppins:wght@400;600&display=swap');
+        
+        body {
+            text-align: center;
+            background-color: #ffe6e6;
+            font-family: 'Quicksand', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .container {
+            max-width: 90%;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 80%;
+            border-radius: 15px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            font-size: 2.5em;
+            margin: 20px 0;
+            font-family: 'Pacifico', cursive;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #question {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            font-family: 'Pacifico', cursive;
+            border-radius: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .no {
+            background-color: #dc3545;
+            color: white;
+            position: relative;
+            transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
+        }
+
+        /* No Button Shrink Animation */
+        .shrink {
+            transform: scale(0);
+            opacity: 0;
+        }
+
+        /* Ready button styles */
+        .ready {
+            background-color: #28a745;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            font-size: 1.5em;
+            padding: 15px 40px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .ready:hover {
+            transform: scale(1.1);
+        }
+
+        /* Quiz Page Styles */
+        .quiz-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .quiz-img {
+            width: 250px;
+            border-radius: 20px;
+            margin-top: 20px;
+        }
+
+        .quiz-input {
+            font-size: 1.2em;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #28a745;
+            text-align: center;
+            width: 80%;
+            max-width: 250px;
+            outline: none;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .quiz-input:focus {
+            border-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .quiz-button {
+            background-color: #28a745;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 12px 30px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .quiz-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Swanky Animations */
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Result Page Styling */
+        .result-container {
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .result-heading {
+            font-family: 'Pacifico', cursive;
+            color: #ff4d4d;
+            font-size: 2.5em;
+            margin: 20px 0;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .result-img {
+            width: 250px;
+            border-radius: 20px;
+            margin-top: 20px;
+            animation: zoomIn 1.5s ease-in-out;
+        }
+
+        .continue-button {
+            background-color: #9e28a7;
+            color: white;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            font-size: 1.5em;
+            padding: 15px 40px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 30px;
+            animation: slideUp 1s ease-in-out;
+        }
+
+        .continue-button:hover {
+            transform: scale(1.1);
+        }
+
+        /* Non-cursive font for quiz questions */
+        .quiz-container h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .quiz-container input,
+        .quiz-container button {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="mainHeading">Dear Matchbox</h1>
+        <img id="valentineGif" src="https://media3.giphy.com/media/jmxDdzVQbvDa2U0WU4/giphy.gif" alt="Cute Gif">
+        <h1 id="question">Will you be my Valentine? ❤️</h1>
+        <div class="buttons" id="buttonContainer">
+            <button class="btn yes" id="yesButton" onclick="showMessage()">Yes</button>
+            <button class="btn no" id="noButton" onclick="shrinkNoButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            let heading = document.getElementById('mainHeading');
+            heading.textContent = "WAIT!!";
+            heading.style.fontFamily = "'Quicksand', sans-serif";
+            heading.style.color = "#1a1a6e"; // Matching quiz question color
+
+            document.getElementById('valentineGif').src = "https://media.tenor.com/snQMl63UxBEAAAAM/they-dont-love-you-like-i-love-you-dog.gif";
+            
+            let question = document.getElementById('question');
+            question.textContent = "ID CHECK!";
+            question.style.fontFamily = "'Quicksand', sans-serif";
+            question.style.color = "#1a1a6e"; // Matching heading color
+            
+            document.getElementById('buttonContainer').innerHTML = '<button class="ready" onclick="proceed()">I\'m ready</button>';
+        }
+
+        function shrinkNoButton() {
+            let noButton = document.getElementById('noButton');
+            noButton.classList.add("shrink");
+        }
+
+        function proceed() {
+            document.body.innerHTML = `
+                <div class="quiz-container">
+                    <h1>What is Matchbox's favorite drink? ☕💚</h1>
+                    <img class="quiz-img" src="https://i.postimg.cc/vTqmBBKc/PXL-20240727-034052772-1.jpg" alt="Matchbox">
+                    <br>
+                    <input type="text" id="answerInput" class="quiz-input" placeholder="Type your answer here...">
+                    <br>
+                    <button class="quiz-button" onclick="checkAnswer()">Submit</button>
+                </div>
+            `;
+        }
+
+        function checkAnswer() {
+            let userAnswer = document.getElementById('answerInput').value.toLowerCase();
+            let correctAnswer = "matcha";
+
+            if (userAnswer === correctAnswer) {
+                document.body.innerHTML = `
+                    <div class="result-container">
+                        <h1 class="result-heading">WOAH. Maybe you are Matchbox</h1>
+                        <img class="result-img" src="https://i.postimg.cc/Yq09P64g/PXL-20241011-231331141.jpg" alt="Matchbox">
+                        <button class="continue-button" onclick="continueToNext()">It's me I swear</button>
+                    </div>
+                `;
+                let resultHeading = document.querySelector('.result-heading');
+                let resultImg = document.querySelector('.result-img');
+                let continueButton = document.querySelector('.continue-button');
+                
+                resultHeading.style.animation = 'fadeIn 1s ease-in-out';
+                resultImg.style.animation = 'zoomIn 1.5s ease-in-out';
+                continueButton.style.animation = 'slideUp 1s ease-in-out';
+            } else {
+                document.body.innerHTML = `
+                    <div class="result-container">
+                        <h1 class="result-heading">Nuh uh</h1>
+                        <button class="quiz-button" onclick="proceed()">Go Back</button>
+                    </div>
+                `;
+            }
+        }
+
+        function continueToNext() {
+            document.body.innerHTML = `
+                <div class="quiz-container">
+                    <h1>Who is this? 🤔</h1>
+                    <img class="quiz-img" src="https://i.postimg.cc/jdDxcR94/PXL-20241103-065351191.jpg" alt="Matchbox">
+                    <br>
+                    <button class="quiz-button" onclick="checkWhoIsThisAnswer('daniel')">Daniel Jerome Vittachi</button>
+                    <button class="quiz-button" onclick="checkWhoIsThisAnswer('dev')">Dev Patel</button>
+                </div>
+            `;
+        }
+
+      function sendInvite() {
+    document.body.style.backgroundColor = "white"; // Set background color to white
+    document.body.innerHTML = `
+        <div style="text-align: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
+            <img class="quiz-img" src="https://i.postimg.cc/7PWGwtrX/Valentines-picture.png" alt="Matchbox" style="max-width: 0%; max-height: 0%; height: auto; width: auto; transition: max-width 2s ease, max-height 2s ease;">
+        </div>
+    `;
+
+    // After the content is loaded, trigger the image expansion to fill the screen
+    setTimeout(() => {
+        document.querySelector(".quiz-img").style.maxWidth = "100%";
+        document.querySelector(".quiz-img").style.maxHeight = "100%";
+    }, 100); // Adding a slight delay to ensure the image element is in place before the animation starts
+}
+
+
+
+
+        function checkWhoIsThisAnswer(answer) {
+            if (answer === 'daniel') {
+                document.body.innerHTML = `
+                    <div class="result-container">
+                        <h1 class="result-heading">okie I believe you</h1>
+                        <img class="result-img" src="https://i.postimg.cc/VspQYnGX/IMG-20250119-192047-689-2.jpg" alt="Matchbox">
+                        <button class="continue-button" onclick="sendInvite()">gimme invite</button>
+                    </div>
+                `;
+            } else {
+                document.body.innerHTML = `
+                    <div class="result-container">
+                        <h1 class="result-heading">Wrong brown boy</h1>
+                        <img class="result-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiJ0ny78sEJGlv1EcxoUTVzvkGxXPJY6i6SQ&s" alt="Wrong Answer">
+                        <button class="quiz-button" onclick="continueToNext()">Try Again</button>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
