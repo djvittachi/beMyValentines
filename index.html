@@ -40,8 +40,9 @@
         }
 
         #question {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Pacifico', cursive;
             font-weight: 600;
+	    color: #ff4d4d;
             font-size: 1.8em;
             color: #333;
         }
@@ -214,7 +215,7 @@
         }
 
         .continue-button {
-            background-color: #9e28a7;
+            background-color: #28a745;
             color: white;
             font-family: 'Quicksand', sans-serif;
             font-weight: bold;
@@ -233,7 +234,7 @@
 
         /* Non-cursive font for quiz questions */
         .quiz-container h1 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Pacifico', cursive;
             font-weight: 600;
             color: #333;
         }
@@ -297,7 +298,7 @@
             if (userAnswer === correctAnswer) {
                 document.body.innerHTML = `
                     <div class="result-container">
-                        <h1 class="result-heading">WOAH. Maybe you are Matchbox</h1>
+                        <h1 class="result-heading">YOU GOT IT</h1>
                         <img class="result-img" src="https://i.postimg.cc/Yq09P64g/PXL-20241011-231331141.jpg" alt="Matchbox">
                         <button class="continue-button" onclick="continueToNext()">It's me I swear</button>
                     </div>
