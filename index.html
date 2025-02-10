@@ -247,7 +247,7 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="mainHeading">Dear Matchbox</h1>
+        <h1 id="mainHeading">Dear Hallam</h1>
         <img id="valentineGif" src="https://media3.giphy.com/media/jmxDdzVQbvDa2U0WU4/giphy.gif" alt="Cute Gif">
         <h1 id="question">Will you be my Valentine? ❤️</h1>
         <div class="buttons" id="buttonContainer">
@@ -281,8 +281,8 @@
         function proceed() {
             document.body.innerHTML = `
                 <div class="quiz-container">
-                    <h1>What is Matchbox's favorite drink? ☕💚</h1>
-                    <img class="quiz-img" src="https://i.postimg.cc/vTqmBBKc/PXL-20240727-034052772-1.jpg" alt="Matchbox">
+                    <h1>What is Hallam's favorite drink? ☕💚</h1>
+                    <img class="quiz-img" src="https://i.postimg.cc/ncHj9FKQ/Screenshot-2025-02-10-220840.png" alt="Hallam">
                     <br>
                     <input type="text" id="answerInput" class="quiz-input" placeholder="Type your answer here...">
                     <br>
@@ -293,13 +293,13 @@
 
         function checkAnswer() {
             let userAnswer = document.getElementById('answerInput').value.toLowerCase();
-            let correctAnswer = "matcha";
+            let correctAnswer = "piss";
 
             if (userAnswer === correctAnswer) {
                 document.body.innerHTML = `
                     <div class="result-container">
                         <h1 class="result-heading">YOU GOT IT</h1>
-                        <img class="result-img" src="https://i.postimg.cc/Yq09P64g/PXL-20241011-231331141.jpg" alt="Matchbox">
+                        <img class="result-img" src="https://i.postimg.cc/B69tS4Qb/image.png" alt="Hallam">
                         <button class="continue-button" onclick="continueToNext()">It's me I swear</button>
                     </div>
                 `;
@@ -324,10 +324,10 @@
             document.body.innerHTML = `
                 <div class="quiz-container">
                     <h1>Who is this? 🤔</h1>
-                    <img class="quiz-img" src="https://i.postimg.cc/jdDxcR94/PXL-20241103-065351191.jpg" alt="Matchbox">
+                    <img class="quiz-img" src="https://i.postimg.cc/Hxdc0TGK/F2-F92-AAC-C180-4546-9585-6-B3-CB1-D7-BB67.jpg" alt="Hallam">
                     <br>
-                    <button class="quiz-button" onclick="checkWhoIsThisAnswer('daniel')">Daniel Jerome Vittachi</button>
-                    <button class="quiz-button" onclick="checkWhoIsThisAnswer('dev')">Dev Patel</button>
+                    <button class="quiz-button" onclick="checkWhoIsThisAnswer('daniel')">Caleb Wait</button>
+                    <button class="quiz-button" onclick="checkWhoIsThisAnswer('dev')">Caleb Watt</button>
                 </div>
             `;
         }
@@ -336,7 +336,7 @@
     document.body.style.backgroundColor = "white"; // Set background color to white
     document.body.innerHTML = `
         <div style="text-align: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
-            <img class="quiz-img" src="https://i.postimg.cc/7PWGwtrX/Valentines-picture.png" alt="Matchbox" style="max-width: 0%; max-height: 0%; height: auto; width: auto; transition: max-width 2s ease, max-height 2s ease;">
+            <img class="quiz-img" src="https://i.postimg.cc/6pK8x9qQ/bemyfrog.png" alt="Hallam" style="max-width: 0%; max-height: 0%; height: auto; width: auto; transition: max-width 2s ease, max-height 2s ease;">
         </div>
     `;
 
@@ -355,15 +355,15 @@
                 document.body.innerHTML = `
                     <div class="result-container">
                         <h1 class="result-heading">okie I believe you</h1>
-                        <img class="result-img" src="https://i.postimg.cc/VspQYnGX/IMG-20250119-192047-689-2.jpg" alt="Matchbox">
+                        <img class="result-img" src="https://i.postimg.cc/3xj3XmK8/Screenshot-2025-02-10-223446.png" alt="Hallam">
                         <button class="continue-button" onclick="sendInvite()">gimme invite</button>
                     </div>
                 `;
             } else {
                 document.body.innerHTML = `
                     <div class="result-container">
-                        <h1 class="result-heading">Wrong brown boy</h1>
-                        <img class="result-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiJ0ny78sEJGlv1EcxoUTVzvkGxXPJY6i6SQ&s" alt="Wrong Answer">
+                        <h1 class="result-heading">Wrong white boy</h1>
+                        <img class="result-img" src="https://i.makeagif.com/media/10-28-2022/8wUigS.gif" alt="Wrong Answer">
                         <button class="quiz-button" onclick="continueToNext()">Try Again</button>
                     </div>
                 `;
