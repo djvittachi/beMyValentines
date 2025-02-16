@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine?</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&family=Poppins:wght@400;600&display=swap');
-        
+
         body {
             text-align: center;
             background-color: #ffe6e6;
@@ -42,7 +43,7 @@
         #question {
             font-family: 'Pacifico', cursive;
             font-weight: 600;
-	    color: #ff4d4d;
+            color: #ff4d4d;
             font-size: 1.8em;
             color: #333;
         }
@@ -159,6 +160,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -171,6 +173,7 @@
                 opacity: 0;
                 transform: scale(0.5);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1);
@@ -182,6 +185,7 @@
                 transform: translateY(50px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -245,6 +249,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1 id="mainHeading">Dear Matchbox</h1>
@@ -264,12 +269,12 @@
             heading.style.color = "#1a1a6e"; // Matching quiz question color
 
             document.getElementById('valentineGif').src = "https://media.tenor.com/snQMl63UxBEAAAAM/they-dont-love-you-like-i-love-you-dog.gif";
-            
+
             let question = document.getElementById('question');
             question.textContent = "ID CHECK!";
             question.style.fontFamily = "'Quicksand', sans-serif";
             question.style.color = "#1a1a6e"; // Matching heading color
-            
+
             document.getElementById('buttonContainer').innerHTML = '<button class="ready" onclick="proceed()">I\'m ready</button>';
         }
 
@@ -306,7 +311,7 @@
                 let resultHeading = document.querySelector('.result-heading');
                 let resultImg = document.querySelector('.result-img');
                 let continueButton = document.querySelector('.continue-button');
-                
+
                 resultHeading.style.animation = 'fadeIn 1s ease-in-out';
                 resultImg.style.animation = 'zoomIn 1.5s ease-in-out';
                 continueButton.style.animation = 'slideUp 1s ease-in-out';
@@ -332,23 +337,20 @@
             `;
         }
 
-      function sendInvite() {
-    document.body.style.backgroundColor = "white"; // Set background color to white
-    document.body.innerHTML = `
-        <div style="text-align: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
-            <img class="quiz-img" src="https://i.postimg.cc/7PWGwtrX/Valentines-picture.png" alt="Matchbox" style="max-width: 0%; max-height: 0%; height: auto; width: auto; transition: max-width 2s ease, max-height 2s ease;">
-        </div>
-    `;
+        function sendInvite() {
+            document.body.style.backgroundColor = "white"; // Set background color to white
+            document.body.innerHTML = `
+                <div style="text-align: center; height: 100vh; display: flex; justify-content: center; align-items: center;">
+                    <img class="quiz-img" src="https://i.postimg.cc/7PWGwtrX/Valentines-picture.png" alt="Matchbox" style="max-width: 0%; max-height: 0%; height: auto; width: auto; transition: max-width 2s ease, max-height 2s ease;">
+                </div>
+            `;
 
-    // After the content is loaded, trigger the image expansion to fill the screen
-    setTimeout(() => {
-        document.querySelector(".quiz-img").style.maxWidth = "100%";
-        document.querySelector(".quiz-img").style.maxHeight = "100%";
-    }, 100); // Adding a slight delay to ensure the image element is in place before the animation starts
-}
-
-
-
+            // After the content is loaded, trigger the image expansion to fill the screen
+            setTimeout(() => {
+                document.querySelector(".quiz-img").style.maxWidth = "100%";
+                document.querySelector(".quiz-img").style.maxHeight = "100%";
+            }, 100); // Adding a slight delay to ensure the image element is in place before the animation starts
+        }
 
         function checkWhoIsThisAnswer(answer) {
             if (answer === 'daniel') {
@@ -371,4 +373,5 @@
         }
     </script>
 </body>
+
 </html>
